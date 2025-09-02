@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <center>
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Form Styling</title>
+</head>
+<body>
+
+  <h1 id="heading">Student Form</h1>
+
+  <form id="myForm">
+    <label for="name">Name</label><br>
+    <input type="text" id="name"><br><br>
+
+    <label for="email">Email</label><br>
+    <input type="email" id="email"><br><br>
+
+    <label for="age">Age</label><br>
+    <input type="number" id="age"><br><br>
+
+    <button type="button" id="styleBtn">Style & Highlight</button>
+  </form>
+
+  <script>
+    // Get elements
+    const heading = document.getElementById("heading");
+    const form = document.getElementById("myForm");
+    const labels = document.querySelectorAll("label");
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+
+    document.getElementById("styleBtn").onclick = function() {
+      // Style heading
+      heading.style.color = "blue";
+      heading.style.textAlign = "center";
+
+      // Style form
+      form.style.border = "2px solid black";
+      form.style.padding = "10px";
+      form.style.width = "250px";
+
+      // Bold all labels
+      labels.forEach(label => {
+        label.style.fontWeight = "bold";
+      });
+
+      // Highlight mandatory fields (Name & Email)
+      [nameInput, emailInput].forEach(input => {
+        if (input.value.trim() === "") {
+          input.style.border = "2px solid red";
+        } else {
+          input.style.border = "2px solid green";
+        }
+      });
+    };
+  </script>
+
+</body>
+</center>
+</html>
